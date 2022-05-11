@@ -1,0 +1,94 @@
+						Liste
+						Array						
+			PRO									CONTRO
+	1)								1)
+	possiamo accedere 				Dimensione Massima
+	ad ogni elemento in					Prefissata
+	tempo costante
+						Lista
+			PRO
+	1)
+	possiamo accedere 				
+	ad ogni elemento in				
+	tempo costante
+	2)
+	Dimensione Massima
+	Variabile
+	
+	che cos'è una lista linkata semplice?
+	una lista è una sequenza di elementi, collegati l'uno al proprio successivo, a dimensione variabile(cosa che negli array è prefissata), 
+	accessibile tramite puntatore al primo elemento, Terminata da un nil(puntatore nullo).
+	
+	liste linkate semplici
+	1) head : Nodo*
+	2) tipo di dato
+	3) Nodo
+		a) valore : tipo di dato
+		b) puntatore : nodo*
+		
+	Operazione Fruibili nelle Liste
+	1) Inserimento								2°
+	2) Accesso
+	3) Ricerca									3°
+	4) Cancellazione
+	5) Ordinamento
+	6) Copia
+	7) Controllo Lista Vuota					1°
+	
+	Controllo Lista Vuota 
+	
+	---------				---------				---------				---------
+	|	3	|		->		|	19	|		->		|	43	|		->		|		|
+	---------				---------				---------				---------
+	
+		^						^						^						^
+		|						|						|						|
+		1° Caso					|						|						|
+	   Head						|						|						|
+	Lista = 3 - 19 - 43			|						|						|
+							2°Caso:						|						|
+							Head						|						|
+							Lista = 19 - 43				|						|
+													3° Caso :					|
+													Head						|
+													Lista = 43					|
+																			4° Caso
+																			Head
+																			Lista = NIL
+	
+	Inserimento di valori in Testa
+	1) creare il nuovo nodo
+	2) il successivo del nuovo nodo deve essere la testa della vecchia lista
+	3) aggiornare la testa della lista
+	
+	1) temp <- Nodo(Val)
+	2) temp.next <- head
+	3) head <- temp
+	
+	Inserimento di valore in Coda
+	
+	---------				---------				---------				---------
+	|	3	|		->		|	19	|		->		|	43	|		->		|		|
+	---------				---------				---------				---------
+	
+		^						^						^						^
+		|						|						|						|
+		1° Caso					|						|						|
+	   Head						|						|						|
+	Lista = 3 - 19 - 43			|						|						|
+							2°Caso:						|						|
+							Head						|						|
+							Lista = 19 - 43				|						|
+													3° Caso :					|
+													Head						|
+													Lista = 43					|
+																			4° Caso
+																			Head
+																			Lista = NIL
+	
+	1) se la lista è vuota inserisco in testa
+	2) se la lista non è vuota
+		a) scorriamo la lista fino alla coda
+		b) inserire l'ultimo elemento(creare un nuovo e far puntare il vecchio Next al nuovo Nodo)
+		
+		odio l'università

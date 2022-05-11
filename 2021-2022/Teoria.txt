@@ -1,0 +1,61 @@
+OOP
+
+per quanto riguada la Object, Oriented Programming vi sono dei principi fondamentali che sono : 
+
+1) ASTRAZIONE
+2) INCAPSULAMENTO
+3) EREDITARIETA'
+4) POLIMORFISMO
+
+ora parleremo dei quattro principi...
+1. ASTRAZIONE :
+bisogna generalizzare creando delle interfacce comuni a tutti gli oggetti di quel tipo
+
+2. INCAPSULAMENTO :
+ci sono informazione che devono essere "nascoste" all'utente finale, tipo (come si calcola l'ISEE, all'utente finale serve solo la parte finale ovvero l'ISEE calcolato) per fare ciò si usano i modificatori di accesso.
+
+(public, private, protected)
+
+3. EREDITARIETA
+è un meccanismo che consente livelli di astrazione su più livelli (gerarchia)
+
+4. POLIMORFISMO
+sono tutte quelle funzioni che hanno lo stesso nome ma assumono comportamenti differenti a seconda del chiamante.
+
+quando io creo una funzione si avranno dati e funzioni, entrambe le cose saranno membri della classe e si chiamano "attributi e metodi"
+
+
+	|	         CLASSE 			|		  STRUCT		 |
+	|-------------------------------|------------------------|
+	|forniscono la possibilità		|tutti i dati ed i metodi|
+	|di modificare	i livelli		|sono public di default  |
+	|di accesso ai membri			|						 |
+	|della classe stessa			|			 			 |
+	|								|						 |
+	|								|						 |
+	|								|			 			 |
+	|								|						 |
+	|								|						 |
+	----------------------------------------------------------
+	
+classe ------------> DEFINIZIONE
+
+VS
+
+oggetto -----------> ISTANZA
+
+la classe è un prototipo che fa da base per istanziare l'oggetto.
+
+ogni classe deve avere un metodo  chiamato COSTRUTTORE che possiede queste caratteristiche :
+1. stesso nome della classe;
+2. nessun tipo di ritorno;
+3. responsabile dell'inizializzazione degli attributi;
+
+i costruttori possono essere di diversi "tipi" :
+1. costruttore di default = non prende parametri;
+2. costruttore completo = prende tutti i parametri;
+3. costruttore di copia = fa la copia bit a bit degli oggetti della classe;
+
+MODIFICATORI DI ACCESSO
+
+
