@@ -1,0 +1,22 @@
+Pile = Stack
+le operazioni di inserimento e rimozione in o dalla pila avvengono sempre dalla cima, per questo motivo le pile sono strutture di tipo dati LIFO(Last-in, First Out)
+ogni pila ha degli 
+	attributi :
+		1) grandezza della pila		(Dimensione)
+		2) top						(Cima della Pila)
+	Metodi : 
+		1) PUSH						(Aggiungere un elemento)
+		2) POP						(Rimuovere un elemento)
+		3) IsEmpty					(Verifica se la pila è vuota)
+-------------------------------------------------------------------------------------------------------------
+|													|														|
+|					PILA LIMITATA					|					PILA ILLIMITATA						|
+|					Metodi:							|						Metodi:							|
+|					PUSH							|						PUSH							|
+|					POP								|						POP								|
+|													|														|
+|			Strutture dati Simili?					|					Strutture dati Simili?				|
+|			Array									|					Liste								|
+|													|														|
+-------------------------------------------------------------------------------------------------------------
+

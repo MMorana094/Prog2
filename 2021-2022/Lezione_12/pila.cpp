@@ -7,11 +7,13 @@ using namespace std;
 
 template<typename T>
 class Node {
-    T val;
-    Node<T>* next;
 
-    template<typename U>
-    friend class List; //friendship per accedere ai tipi private e protected di Node
+    private:
+        T val;
+        Node<T>* next;
+
+        template<typename U>
+        friend class List; //friendship per accedere ai tipi private e protected di Node
 
     public:
         Node(T val) : val(val) {
@@ -30,9 +32,9 @@ class Node {
 
 template<typename T>
 class List {
-    Node<T>* head;
-    int Size;
-    bool ascend;
+
+    private:
+        bool ascend;
 
     public:
         List(bool ascend) {
@@ -48,9 +50,9 @@ class List {
         void insert(T val) {
             if(this->isEmpty()) {
                 head = new Node<T>(val);
+                Size++;
                 return; //inserimento in lista vuota
             }
-            Size++;
         }
 
         void insertHead(T val) { //inserimento in lista
@@ -68,7 +70,6 @@ class List {
         void insertTail(T val) {
             if(this->isEmpty()) {
                 this->insertHead(val);
-                Size++;
                 return;
             }
 
@@ -100,7 +101,6 @@ class List {
             }
             if(!(ptr->next)){
                 this->insertTail(val);
-                Size++;
                 return;
             }
             Node<T>* toInsert= new Node<T> (val);
@@ -146,7 +146,6 @@ class List {
             }
             if(head->val == val){
                 this->deleteHead();
-                Size--;
                 return;
             }
             Node<T>* cur = head;
@@ -182,6 +181,36 @@ class List {
             }
 
             return os;
+        }
+
+    protected:
+            Node<T>* head;
+            int Size;
+};
+
+template <typename T>
+class stack : public List<T>{
+    private:
+    
+    public:
+        stack(bool ascend) : List<T>(ascend){
+
+        }
+        Node<T>* top() {
+            return List<T>::getHead();
+        }
+
+        void push(T val){
+            List<T>::insertHead(val);
+        }
+
+        Node<T>* pop(T val){
+            if(List<T>::isEmpty()){
+                return nullptr;
+            }
+            Node<T>* ptr = top();
+            List<T>::deleteHead();
+            return ptr;
         }
 };
 
@@ -232,6 +261,13 @@ int main() {
 
     cout << lista.getSize() << endl;
 
+    stack<int> stack(0);
 
+    stack.push(10);
+    stack.push(8);
+    stack.push(11);
+    
+    cout << stack << endl;
+    cout << stack.getSize() << endl;
 
 }
