@@ -1,0 +1,58 @@
+Alberi Binari di Ricerca(BST)
+
+sono formati da root e nodi(nodi senza figli = foglie), il numero di nodi è detto arietà...
+ogni nodo eccetto il root, ha una profondità, sommando le profondità fra loro si ottiene l'altezza dell'albero
+
+numero di livelli = h
+numero di nodi = 2^h
+nodo = n
+n <= 2^h ----> h = ceiling(log[2]n)
+
+un albero binario è completo, se e solo se ha esattamente 2^h nodi, dove h è l'altezza dell'albero
+
+albero bilanciato:
+un albero si dice bilanciato se la differenza di altezza fra il sottoalbero di destra e quello di sinistra è al massimo 1
+
+												BST
+							
+	tutti i destri della radice saranno >= alla radice e tutti i sinistri saranno <= alla radice
+	Es.
+	
+											  10
+										/	   |	\
+									   8	   |	 15
+									 /	 \	   |	/	\
+									7	  9    |  13 	 17
+									
+									
+									
+	Es2.										  10
+										/	   |	   \
+									   7	   |	    15
+									/ 	 \	   |	/		\
+								   4   	   8   |  12	 	21
+									\		\  |    \		/
+									 6       9 |	 13	   17
+									 /
+									5
+
+come si stampano i BST? esistono 3 metodi per visitare gli alberi binari di ricerca:
+1) visita pre-order:
+	visitiamo prima la radice, poi il sottoalbero SX e infine il sottoalbero DX;
+2) visita post-order:
+	visitiamo ricorsivamente il sottoalbero SX, poi quello DX ed infine la radice (si utilizza la pila);
+
+											   10
+										/	   |	\
+									   8	   |	 15
+									 /	 \	   |	/	\
+									7	  9    |  13 	 17
+
+	visito sottoalbero sinistro ( 7 ), ha figli? no ok lo stampo
+	visito sottoalbero destro ( 9 ), ha figli? no ok lo stampo
+	visito la radice ( 8 ), ho già stampato i figli quindi la stampo
+	7 - 9 - 8 
+	13 - 17 - 15
+	10
+3) visita in-order
+	visito il sottoalbero SX, poi la radice ed infine il sottoalbero DX;

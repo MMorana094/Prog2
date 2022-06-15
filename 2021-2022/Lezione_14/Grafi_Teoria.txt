@@ -1,0 +1,68 @@
+BFS - Pseudo Codice
+
+s = sorgente
+G = grafo
+
+inizializzazione
+
+BFS(G, s)
+        for ogni vertice U nel grafo G :                                    ===>        vale una volta per ogni vertice visto che stiamo inizializzando = |V|
+            color[u] = white;
+            time[u] = inf;
+            predecessore[u] = nullptr;
+        color[s] = gray;
+        predecessore[s] = nullptr;
+        time[s] = 0;
+
+visita
+
+Q = Queue = vuota
+Q.enqueue(s)
+while(Q != insieme vuoto)                                                   ====>       |V|
+    u = Q.dequeue()                                                                                                 =====> |V| * (|E|/|V|) = |E|
+    for ogni vertice V nella lista di adiacenza di U :                      ====>       |E|/|V|         
+            if(color[v] == white ){
+                color[v] = gray;
+                time[v] = time[u] + 1;
+                predecessore[v] = u;
+                Q.enqueue(v)
+        color[u] = black;
+
+        }
+
+        complessità = inizializzazione + visita
+        complessità = |V| + |E|
+
+
+
+DFS - Pseudo Codice
+
+DFS(G)
+        for ogni vertice u in grafo G:
+                color[u] = white;
+                scoperta[u] = inf;
+                finito[u] = inf;
+                predecessore[u] = nullptr;
+                tempo globale = 0;
+                for ogni vertice u in G:
+                    if(color[u] == white){
+                        DFS-visit(u);
+                    }
+
+visita
+
+DFS-visit(u)
+        color[u] = gray;
+        time = time + 1;
+        scoperta[u] = time;
+        for v in lista di adiacenza:
+        if color[v] == white;
+            p[v] = u;
+            DFS-visit(v);
+    color[u] = black;
+    time = time + 1;
+    finito[u] = time;
+
+    
+        complessità = inizializzazione + visita
+        complessità = |V| + |E|

@@ -29,9 +29,9 @@ class StaticStack{
 
         T getTop(){
             if(isEmpty()){
-                return -1;
+                return NULL;
             }
-            return arr[top];
+            return arr[top--];
         }
 
         void PUSH(T val){

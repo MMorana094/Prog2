@@ -78,12 +78,14 @@ class Static_queue{
 
 int main(){
 
-	Static_queue<int> sq(4);
+	Static_queue<int> sq(MAX_SIZE);
 
 	sq.enqueue(1);
 	sq.enqueue(2);
 	sq.enqueue(3);
 	sq.enqueue(4);
+
+	cout << sq;
 
 
 }
