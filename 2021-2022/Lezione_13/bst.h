@@ -131,6 +131,59 @@ class BST{
             }
             return nullptr;
         }
+
+
+        BSTNode<T>* remove(BSTNode<T>* node){
+          // CASO 1
+          // nodo è foglia
+         if(!node->left && !node->right){
+            if(node->parent){ // se nodo non ha genitori allora è la radice
+              if(node == node->parent->left) // è figlio sx
+               node->parent->left = nullptr;
+              else if(node == node->parent->right) // è figlio dx
+               node->parent->right = nullptr; 
+            }else{
+               this->root = nullptr;
+            }
+
+            return node;
+         }
+
+         // CASO 2
+         // nodo ha un figlio destro
+         if(!node->left && node->right){
+             node->right->parent = node->parent;
+             
+             if(node->parent){ 
+              if(node == node->parent->left)
+                node->parent->left = node->right;
+              else if(node == node->parent->right)
+                node->parent->right = node->right;
+             }else{ // il nodo eliminato è la radice, setto la nuova root
+               this->root = node->right;
+             }
+
+             return node;
+         }
+         
+         // nodo ha un figlio sinistro
+         if(node->left && !node->right){ 
+             node->left->parent = node->parent;
+             
+             if(node->parent){
+              if(node == node->parent->left)
+                node->parent->left = node->left;
+              else if(node == node->parent->right)
+                node->parent->right = node->left;
+             }else{
+               this->root = node->left;
+             }
+
+             return node;
+         }
+
+         return nullptr;
+      }
 /* 
         void remove(BSTNode<T>* node){
             if(this->isEmpty()){
