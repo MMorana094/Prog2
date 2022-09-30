@@ -32,13 +32,11 @@ template<typename T>
 class List {
     Node<T>* head;
     int Size;
-    bool ascend;
 
     public:
-        List(bool ascend) {
+        List() {
             this->head = nullptr;
             this->Size = 0;
-            this->ascend = ascend;
             }
 
         bool isEmpty() { //controllo per la lista vuota
@@ -153,11 +151,11 @@ class List {
             Node<T>* prev = nullptr;
             while (cur->next && cur->val != val){
                prev = cur;
-               cur  = cur->next;
+               cur  = prev->next;
             }
             if(!(cur->next) && cur->val != val){
                 prev = cur;
-                cur = cur->next;
+                cur = prev->next;
             }
             prev->next = cur->next;
             delete cur;
@@ -189,8 +187,8 @@ int main() {
 
     cout << "\n";
 
-    List<int> lista(1);
-    List<int> listaN(0);
+    List<int> lista;
+    List<int> listaN;
     
     listaN.insertHead(10); //ultimo elemento
     cout << *listaN.getHead() << endl;
@@ -206,11 +204,12 @@ int main() {
  */
     cout << listaN << endl;
 
-    lista.insertTail(10);
+    lista.InserInOrder(10);
+    lista.InserInOrder(4);
     lista.InserInOrder(6);
     lista.InserInOrder(-20);
     lista.InserInOrder(9);
-    lista.InserInOrder(4);
+    
     
 /* 
     for(int i=0; i<20; i++){
@@ -222,6 +221,8 @@ int main() {
         lista.insertHead(rand()%100);
     }
  */
+
+    cout << "ora vedremo la lista" << endl;
     cout << lista << endl;
 
     cout << lista.getSize() << endl;

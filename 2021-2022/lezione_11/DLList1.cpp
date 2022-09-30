@@ -66,6 +66,7 @@ class DLList {
 		toInsert->next = head;
 		head->prev = toInsert;
 		head = toInsert;
+		return;
 	}
 	
 	void insertTail(T val) {
@@ -90,7 +91,6 @@ class DLList {
 			DLNode<T> *ptr = head;
 			head = nullptr;
 			tail = nullptr;
-			//delete ptr;
 			return;			
 		}
 		
@@ -122,7 +122,10 @@ class DLList {
 	}
 
 	friend ostream& operator<<(ostream& os, const DLList<T>& obj) {
-
+		os << "DLlist Started at " << obj.head << endl;
+		while(head->ptr){
+			os << 
+		}
 		return os;
 	}
 };
@@ -132,7 +135,6 @@ template<class T>
 class Queue : protected DLList<T> {
 	protected:
 		int size = 0;
-		int head = -1, tail = -1;
 
 	public:
 
@@ -143,31 +145,29 @@ class Queue : protected DLList<T> {
 		}
 
 		DLNode<T> dequeue() {
-
-			if(isEmpty()){
+		
+			if(isEmpty())
 				return 0;
-			}
-
-			T tmp = array[head];  						//Mi conservo il valore della testa per restituirlo in seguito
-			head = (++head) % maxSize; 					//Prima incremento e poi faccio il modulo con la dimensione per lo stesso motivo di sopra
-			size--; 									//Decremento la dimensione effettiva
-			return tmp;
+			
+			DLNode<T> ptr = *(DLList<T>::head);
+			DLList<T>::removeHead();
+			size--;
+			return ptr;
 		}
 
 		bool isEmpty() {
 			return size == 0;
 		}
 
-		friend ostream& operator<<(ostream& os, const Queue<T>& queue) {
-			os << "Queue starting at " << &queue.head;
-			DLNode<T>* ptr = queue.head;
-			while(ptr) {
-				cout << *ptr << endl;
-				ptr = ptr->getNext();
-			}
-
-			return os;
+		friend std::ostream& operator<<(ostream& out, Queue<T>& queue) {
+		out << "Queue starting at " << &(queue.head);
+		DLNode<T> *ptr = queue.head;
+		while(ptr) {
+			out << *ptr << std::endl;
+			ptr = ptr->getNext();
 		}
+		return out;
+	}
 };
 
 int main(){
@@ -179,8 +179,6 @@ int main(){
     Lista1.insertHead(65);
 
 	cout << Lista1 << endl;
-
-    //Lista1.isEmpty();
 
 	Queue<int> q;
 	q.enqueue(10);

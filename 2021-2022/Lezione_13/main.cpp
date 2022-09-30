@@ -22,7 +22,7 @@ int main(){
     bst.insert(3);
     bst.insert(1);
 
-    bst.inorder();
+    bst.in_order();
 
     cout << "\n MIN E MAX" << endl;
 
@@ -34,12 +34,10 @@ int main(){
     cout << "\n" <<*bst.getRoot() << endl;
     cout << *(bst.successor(bst.getRoot())) << endl;
 
-/*
     cout << "\n Cancellazione " << endl;
     
     BSTNode<int>* cancellato1 = bst.remove(10);
-    bst.inorder(); 
-*/
+    bst.in_order(); 
 
 
 }

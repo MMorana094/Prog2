@@ -5,22 +5,6 @@ using namespace std;
 
 void insertion(int arr[], int len){
     int temp, j;
-
-    for(int i=1; i<len; i++){
-        temp = arr[i];
-        for(int j=i; j>0;  j--){
-            if(temp < arr[j-1]){
-                arr[j] = arr[j-1];
-            } else {
-                break;
-            }
-        }
-    arr[j] = temp;
-    }
-}
-
-void insertion2(int arr[], int len){
-    int temp, j;
     for(int i=1; i<len; i++) { 
 		temp=arr[i]; 
             j=i-1; 
@@ -47,7 +31,7 @@ int main(){
     }
 
     print(arr, n);
-    insertion2(arr, n);
+    insertion(arr, n);
     cout << endl;
     print(arr, n);
     
