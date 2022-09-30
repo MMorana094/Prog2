@@ -12,6 +12,13 @@ class StaticStack{
 
     public:
 
+        StaticStack(int MaxSize){
+            this->MaxSize = MaxSize;
+            this->size = 0;
+            this->top = -1;
+            arr = new T[MaxSize];
+            }
+
         virtual ostream& put(ostream& os){
             os << "Static Stack: Max Size=" << MaxSize << endl;
             for(int i=-1; i<MaxSize-1; i++){
@@ -19,12 +26,6 @@ class StaticStack{
             }
             os << endl;
             return os;
-        }
-        StaticStack(int MaxSize){
-            this->MaxSize = MaxSize;
-            this->size = 0;
-            this->top = -1;
-            arr = new T[MaxSize];
         }
 
         T getTop(){
